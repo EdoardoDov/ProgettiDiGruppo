@@ -1,6 +1,6 @@
-public class VeicoloAMotore{
+public class VeicoloAMotore extends Veicolo{
 
-    private String  targa;
+    private final String targa;
     private int livelloCarburante;
 
     public VeicoloAMotore() {
