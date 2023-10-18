@@ -28,7 +28,7 @@ public class VeicoloAMotore extends Veicolo{
         if(livelloCarburante >= 100){
             System.out.println("serbatoio pieno!");
         } else {
-            if (litriCarburante + litriCarburante > 100){
+            if (livelloCarburante + litriCarburante > 100){
                 this.livelloCarburante = 100;
                 System.out.println("hai fatto il pieno!");
             } else {
