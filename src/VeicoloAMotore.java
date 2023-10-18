@@ -4,6 +4,7 @@ public class VeicoloAMotore extends Veicolo{
     private int livelloCarburante;
 
     public VeicoloAMotore() {
+        super();
         this.targa = generaTarga();
         this.livelloCarburante = 100;
     }

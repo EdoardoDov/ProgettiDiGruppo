@@ -1,7 +1,8 @@
-public class VeicoloElettrico {
+public class VeicoloElettrico extends Veicolo {
     private int livelloBatteria;
 
     public VeicoloElettrico(){
+        super();
         this.livelloBatteria = 100;
     }
 
