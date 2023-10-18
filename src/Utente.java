@@ -98,7 +98,9 @@ public class Utente {
     @Override
     public String toString(){
 
-        return getNome() + "\n" + getCognome() + "\n" +getCodfisc() + "\n" + getDataDiNascita() + "\n" + getId();
+       return "Nome:" + getNome() + "\n" + "Cognome: "+ getCognome() + "\n" +
+                "Codice Fiscale: "+getCodfisc() + "\n" +"Data di nascita: "+ getDataDiNascita() +
+                "\n" + "Identificativo utente: "+getId();
 
     }
 }
