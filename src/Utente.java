@@ -21,7 +21,7 @@ public class Utente {
         this.dataDiNascita = DN;
         this.patente = P;
         this.casco = Cas;
-        this.id = UUID.randomUUID();;
+        this.id = UUID.randomUUID();
     }
 
     public Utente(){
