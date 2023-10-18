@@ -3,7 +3,7 @@ import java.util.Random;
 public class Veicolo {
     private int id;
     private String posizione;
-    private boolean affittato;
+    private boolean affittato = false;
     private static int count =0;
 
     public Veicolo(){
@@ -11,11 +11,6 @@ public class Veicolo {
         count++;
     }
 
-    public Veicolo(int id, String posizione, boolean affittato) {
-        this.id = id;
-        this.posizione = posizione;
-        this.affittato = false;
-    }
 
     public int getId() {
         return id;
