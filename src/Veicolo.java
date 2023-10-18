@@ -1,17 +1,16 @@
+import java.util.Random;
+
 public class Veicolo {
     private int id;
     private String posizione;
-    private boolean affittato;
+    private boolean affittato = false;
     private static int count =0;
 
-
-
-    public Veicolo() {
+    public Veicolo(){
         this.id = count;
         count++;
-        this.posizione = "deposito"; // da modificare con delle coordinate oppure lo lascimo cosi
-        this.affittato = false;
     }
+
 
     public int getId() {
         return id;
@@ -47,11 +46,12 @@ public class Veicolo {
     public String toString() {
         return
                 "Veicolo"
-                        + "id="
-                        + id
-                        + ", posizione='"
-                        + posizione
-                        + ", affittato="
-                        + affittato;
+                + "id="
+                + id
+                + ", posizione='"
+                + posizione
+                + ", affittato="
+                + affittato;
     }
 }
+
