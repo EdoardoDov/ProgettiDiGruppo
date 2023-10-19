@@ -4,6 +4,7 @@ public class Scooter extends Veicolo {
 
     private final String targa;
     private int livelloCarburante;
+    private boolean casco;
 
     public Scooter(){
         super();
@@ -17,6 +18,14 @@ public class Scooter extends Veicolo {
 
     public String getTarga() {
         return targa;
+    }
+
+    public boolean possiedeCasco() {
+        return casco;
+    }
+
+    public void setCasco(boolean casco) {
+        this.casco = casco;
     }
 
     public int getLivelloCarburante() {
