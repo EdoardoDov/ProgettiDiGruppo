@@ -4,12 +4,16 @@ public class Scooter extends Veicolo {
 
     private final String targa;
     private int livelloCarburante;
+
     private boolean casco;
+
+    private char patente;
 
     public Scooter(){
         super();
         this.targa = generaTarga();
         this.livelloCarburante = 100;
+        this.patente = 'A';
     }
 
     public  String generaTarga(){
@@ -18,6 +22,10 @@ public class Scooter extends Veicolo {
 
     public String getTarga() {
         return targa;
+    }
+
+    public char getPatente() {
+        return patente;
     }
 
     public boolean possiedeCasco() {
