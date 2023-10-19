@@ -5,6 +5,7 @@ public class Veicolo {
     private String posizione;
     private boolean affittato = false;
     private static int count =0;
+    private double tariffa;
 
     public Veicolo(){
         this.id = count;
@@ -22,6 +23,14 @@ public class Veicolo {
 
     public void setPosizione(String posizione) {
         this.posizione = posizione;
+    }
+
+    public double getTariffa(){
+    return tariffa;
+    }
+
+    public void setTariffa(double tar){
+    this.tariffa = tar;
     }
 
     public boolean isAffittato() {
