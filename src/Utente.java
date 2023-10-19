@@ -1,4 +1,3 @@
-package CompagniaSharedMobility;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -8,24 +7,32 @@ import java.util.UUID;
 
 public class Utente {
 
-    private UUID id;
+    private int id;
+    static int count = 0;
+    
     private String nome, cognome,codfisc ;
 
     private String dataDiNascita;
-    private boolean patente, casco;
+    private boolean casco;
 
-    public Utente(String N, String C, String CF, String DN, boolean P, boolean Cas){
+    private double credito;
+    private char patente;
+
+    public Utente(String N, String C, String CF, String DN, boolean Cas, char patente){
         this.nome = N;
         this.cognome = C;
         this.codfisc = CF;
         this.dataDiNascita = DN;
-        this.patente = P;
+        this.patente = patente;
         this.casco = Cas;
-        this.id = UUID.randomUUID();
+        this.id = count;    
+        count++;
+        this.credito = 0;
     }
 
     public Utente(){
-        this.id = UUID.randomUUID();
+        this.id = count;
+        count++;
     }
 
     public String getNome() {
@@ -36,12 +43,28 @@ public class Utente {
         this.nome = nome;
     }
 
+    public double getCredito() {
+        return credito;
+    }
+
+    public void setCredito(int credito) {
+        this.credito = credito;
+    }
+
     public String getCognome() {
         return cognome;
     }
 
     public void setCognome(String cognome) {
         this.cognome = cognome;
+    }
+
+    public char getPatente() {
+        return patente;
+    }
+
+    public void setPatente(char patente) {
+        this.patente = patente;
     }
 
     public String getCodfisc() {
@@ -61,15 +84,6 @@ public class Utente {
         this.dataDiNascita =  bithday;
     }
 
-    public boolean isPatente() {
-        return patente;
-    }
-
-    public void setPatente(boolean patente) {
-
-        this.patente = patente;
-    }
-
     public boolean isCasco() {
         return casco;
     }
@@ -78,30 +92,17 @@ public class Utente {
         this.casco = casco;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
-    /*public static void main(String[] args) {
-        Utente utente1 = new Utente();
-        utente1.setNome("Marco");
-        utente1.setCognome("Marco");
-        utente1.setCodfisc("BCCFGH11");
-        utente1.setCasco(false);
-        utente1.setPatente(true);
-        utente1.setDataDiNascita("10-10-2001");
-        System.out.println(utente1.toString());
-
-        Utente utente2 = new Utente("Marco", "bucceri", "BCCC","10-11-2001",true, true);
-        System.out.println(utente2.toString());
-    } */ //era solo un test
-
     @Override
     public String toString(){
 
-       return "Nome:" + getNome() + "\n" + "Cognome: "+ getCognome() + "\n" +
-                "Codice Fiscale: "+getCodfisc() + "\n" +"Data di nascita: "+ getDataDiNascita() +
-                "\n" + "Identificativo utente: "+getId();
+        return " Nome: " + getNome() + "; Cognome: "+ getCognome() +
+                "; Codice Fiscale: "+getCodfisc() + "; Data di nascita: " +
+                getDataDiNascita() + "; Identificativo utente: "+getId() +"\n";
 
     }
 }
+
 

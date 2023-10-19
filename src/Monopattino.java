@@ -1,7 +1,7 @@
-public class VeicoloElettrico extends Veicolo {
+public class Monopattino extends Veicolo {
     private int livelloBatteria;
 
-    public VeicoloElettrico(){
+    public Monopattino(){
         super();
         this.livelloBatteria = 100;
     }
@@ -37,7 +37,7 @@ public class VeicoloElettrico extends Veicolo {
 
     @Override
     public String toString() {
-        return "VeicoloElettrico{" +
+        return "Monopattino{" +
                 "livelloBatteria=" + livelloBatteria +
                 '}';
     }

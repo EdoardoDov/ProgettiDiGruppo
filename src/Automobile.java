@@ -1,12 +1,13 @@
-public class VeicoloAMotore extends Veicolo{
-
+public class Automobile extends Veicolo{
     private final String targa;
     private int livelloCarburante;
+    final char patente;
 
-    public VeicoloAMotore() {
+    public Automobile() {
         super();
         this.targa = generaTarga();
         this.livelloCarburante = 100;
+        this.patente = 'B';
     }
 
     public  String generaTarga(){
@@ -47,7 +48,7 @@ public class VeicoloAMotore extends Veicolo{
 
     @Override
     public String toString() {
-        return "VeicoloAMotore{" +
+        return "Automobile {" +
                 "targa='" + targa + '\'' +
                 ", livelloCarburante=" + livelloCarburante +
                 '}';
