@@ -1,4 +1,3 @@
-package CompagniaSharedMobility;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -10,6 +9,7 @@ public class Utente {
 
     private UUID id;
     private String nome, cognome,codfisc ;
+    private int credito;
 
     private String dataDiNascita;
     private boolean patente, casco;
@@ -22,6 +22,7 @@ public class Utente {
         this.patente = P;
         this.casco = Cas;
         this.id = UUID.randomUUID();
+        this.credito = 0;
     }
 
     public Utente(){
@@ -81,19 +82,14 @@ public class Utente {
     public UUID getId() {
         return id;
     }
-    /*public static void main(String[] args) {
-        Utente utente1 = new Utente();
-        utente1.setNome("Marco");
-        utente1.setCognome("Marco");
-        utente1.setCodfisc("BCCFGH11");
-        utente1.setCasco(false);
-        utente1.setPatente(true);
-        utente1.setDataDiNascita("10-10-2001");
-        System.out.println(utente1.toString());
 
-        Utente utente2 = new Utente("Marco", "bucceri", "BCCC","10-11-2001",true, true);
-        System.out.println(utente2.toString());
-    } */ //era solo un test
+    public void setCredito(int credito) {
+        this.credito = credito;
+    }
+
+    public int getCredito() {
+        return credito;
+    }
 
     @Override
     public String toString(){
