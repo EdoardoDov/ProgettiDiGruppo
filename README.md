@@ -12,8 +12,8 @@ Di veicoli
 </p>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologie">Tecnologie</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projetto">Projetto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-squadra">Squadra</a>
 </p>
 
@@ -37,7 +37,9 @@ Il progetto mira a sviluppare un programma che offra un servizio di noleggio vei
 
 ---
 
-## 👊 Fatto by Opinno Team Work [Together we can!]
+## 👊 Squadra
+
+Fatto by Opinno Team Work [Together we can!]
 
 - Camila Parise
 - Celine Fatima Emanuele
