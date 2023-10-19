@@ -1,11 +1,13 @@
 public class Furgoncino extends Veicolo {
     private final String targa;
     private int livelloCarburante;
+    final char patente;
 
     public Furgoncino() {
         super();
         this.targa = generaTarga();
         this.livelloCarburante = 100;
+        this.patente = 'B';
     }
 
     public  String generaTarga(){

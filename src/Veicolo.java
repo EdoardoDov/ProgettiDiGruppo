@@ -3,13 +3,15 @@ import java.util.Random;
 public class Veicolo {
     private int id;
     private String posizione;
-    private boolean affittato = false;
+    private boolean affittato;
     private static int count =0;
     private double tariffa;
+    private boolean servePatente ;
 
     public Veicolo(){
         this.id = count;
         count++;
+        this.affittato = false;
     }
 
 
@@ -51,16 +53,16 @@ public class Veicolo {
         affittato = false;
     }
 
+
+
     @Override
     public String toString() {
-        return
-                "Veicolo"
-                + "id="
-                + id
-                + ", posizione='"
-                + posizione
-                + ", affittato="
-                + affittato;
+        return "Veicolo{" +
+                "id=" + id +
+                ", posizione='" + posizione + '\'' +
+                ", affittato=" + affittato +
+                ", tariffa=" + tariffa +
+                '}';
     }
 }
 

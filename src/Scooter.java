@@ -1,5 +1,3 @@
-package CompagniaSharedMobility;
-
 public class Scooter extends Veicolo {
 
     private final String targa;
