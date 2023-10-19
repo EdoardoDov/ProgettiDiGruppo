@@ -1,45 +1,18 @@
+package CompagniaSharedMobility;
 
 import java.util.Scanner;
 
 public class SharedMobility {
 
     public Scanner scanner = new Scanner(System.in);
-    /*public void menu(){
-
-        System.out.println("--------------");
-        System.out.println("Benvenuto");
-        System.out.println("--------------");
-        System.out.println("Premi: \n1.Per registrarti\n2.Per visionare i veicoli\n3.Per Affittare un veicolo\n4.Per restituire un veicolo\n5.Per chiudere la schermata");
-        int n = scanner.nextInt();
-        boolean flag = false;
-
-        while(!flag){
-            switch (n){
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    flag = true;
-                    break;
-            }
-        }
-
-
-    }*/ // NON USARE
-
+    
     DatabaseFake d = new DatabaseFake();
-    public static void main(String[] args) {
-        SharedMobility s = new SharedMobility();
-        s.registraUtente();
-
+    public void registraUtente(Utente u){ //NUOVA VERSIONE CHE SI COLLEGA AL TESTING
+        d.aggiungiUtente(u);
     }
 
-    public void registraUtente(){
+   /* public void registraUtente(){ //VERSIONE PRECEDENTE
+
 
         String nome, cognome, cf, dataN, rispostaCasco;
         char patente;
@@ -82,12 +55,16 @@ public class SharedMobility {
 
         Utente utente = new Utente(nome, cognome, cf, dataN, casco, patente);
         d.aggiungiUtente(utente);
-        }
+        } */
 
     public void aggiungiCredito(){
         double credito;
+        int idRicerca;
         System.out.println("Inserisci l'importo da aggiungere: ");
         credito = scanner.nextDouble();
+        System.out.println("Inserisci il tuo id: ");
+        idRicerca = scanner.nextInt();
+
 
 
 
@@ -97,12 +74,6 @@ public class SharedMobility {
 
 
     }
-
-
-
-
-
-
 
 
 
