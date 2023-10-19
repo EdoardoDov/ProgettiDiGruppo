@@ -1,7 +1,5 @@
 package CompagniaSharedMobility;
 
-import jdk.incubator.vector.VectorOperators;
-
 import java.util.Scanner;
 
 public class Testing {
