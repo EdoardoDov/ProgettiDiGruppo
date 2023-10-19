@@ -18,6 +18,6 @@ public class Bicicletta extends Veicolo{
 
     @Override
     public String toString() {
-        return super.toString() + "Bicicletta{" + "casco=" + casco + '}';
+        return  "Bicicletta{" + "casco=" + casco + '}';
     }
 }

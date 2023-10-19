@@ -48,7 +48,7 @@ public class Furgoncino extends Veicolo {
 
     @Override
     public String toString() {
-        return "VeicoloAMotore{" +
+        return "Furgoncino {" +
                 "targa='" + targa + '\'' +
                 ", livelloCarburante=" + livelloCarburante +
                 '}';

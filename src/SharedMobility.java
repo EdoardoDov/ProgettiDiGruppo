@@ -1,4 +1,3 @@
-package CompagniaSharedMobility;
 
 import java.util.Scanner;
 

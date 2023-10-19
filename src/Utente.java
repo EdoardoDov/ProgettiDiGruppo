@@ -1,6 +1,4 @@
 
-package CompagniaSharedMobility;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Locale;
@@ -97,26 +95,12 @@ public class Utente {
     public int getId() {
         return id;
     }
-    /*public static void main(String[] args) {
-        Utente utente1 = new Utente();
-        utente1.setNome("Marco");
-        utente1.setCognome("Marco");
-        utente1.setCodfisc("BCCFGH11");
-        utente1.setCasco(false);
-        utente1.setPatente(true);
-        utente1.setDataDiNascita("10-10-2001");
-        System.out.println(utente1.toString());
-
-        Utente utente2 = new Utente("Marco", "bucceri", "BCCC","10-11-2001",true, true);
-        System.out.println(utente2.toString());
-    } */ //era solo un test
-
     @Override
     public String toString(){
 
-        return "Nome:" + getNome() + "\n" + "Cognome: "+ getCognome() + "\n" +
-                "Codice Fiscale: "+getCodfisc() + "\n" +"Data di nascita: "+ getDataDiNascita() +
-                "\n" + "Identificativo utente: "+getId();
+        return " Nome: " + getNome() + "; Cognome: "+ getCognome() +
+                "; Codice Fiscale: "+getCodfisc() + "; Data di nascita: " +
+                getDataDiNascita() + "; Identificativo utente: "+getId() +"\n";
 
     }
 }
