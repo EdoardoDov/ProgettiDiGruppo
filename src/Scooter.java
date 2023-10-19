@@ -7,7 +7,7 @@ public class Scooter extends Veicolo {
 
     private boolean casco;
 
-    private char patente;
+    final char patente;
 
     public Scooter(){
         super();
