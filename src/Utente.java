@@ -9,7 +9,9 @@ import java.util.UUID;
 
 public class Utente {
 
-    private UUID id;
+    private int id;
+    static int count = 0;
+    
     private String nome, cognome,codfisc ;
 
     private String dataDiNascita;
@@ -25,12 +27,14 @@ public class Utente {
         this.dataDiNascita = DN;
         this.patente = patente;
         this.casco = Cas;
-        this.id = UUID.randomUUID();
+        this.id = count;    
+        count++;
         this.credito = 0;
     }
 
     public Utente(){
-        this.id = UUID.randomUUID();
+        this.id = count;
+        count++;
     }
 
     public String getNome() {
@@ -90,7 +94,7 @@ public class Utente {
         this.casco = casco;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
     /*public static void main(String[] args) {
