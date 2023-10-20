@@ -8,6 +8,7 @@ public class Automobile extends Veicolo{
         this.targa = generaTarga();
         this.livelloCarburante = 100;
         this.patente = 'B';
+        super.setTariffa(1.50);
     }
 
     public  String generaTarga(){

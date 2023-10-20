@@ -4,6 +4,7 @@ public class Monopattino extends Veicolo {
     public Monopattino(){
         super();
         this.livelloBatteria = 100;
+        super.setTariffa(0.5);
     }
 
     public void setLivelloBatteria(int livelloBatteria) {

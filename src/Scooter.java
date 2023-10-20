@@ -12,6 +12,7 @@ public class Scooter extends Veicolo {
         this.targa = generaTarga();
         this.livelloCarburante = 100;
         this.patente = 'A';
+        super.setTariffa(1.0);
     }
 
     public  String generaTarga(){

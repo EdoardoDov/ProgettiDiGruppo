@@ -8,6 +8,7 @@ public class Furgoncino extends Veicolo {
         this.targa = generaTarga();
         this.livelloCarburante = 100;
         this.patente = 'B';
+        super.setTariffa(2.0);
     }
 
     public  String generaTarga(){

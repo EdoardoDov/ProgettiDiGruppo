@@ -4,7 +4,8 @@ public class Bicicletta extends Veicolo{
     private boolean casco;
     
     public Bicicletta(){
-    super();
+        super();
+        super.setTariffa(0.5);
     }
 
     public boolean isCasco() {
