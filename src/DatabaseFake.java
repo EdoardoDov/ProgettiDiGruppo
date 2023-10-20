@@ -80,12 +80,13 @@ public class DatabaseFake {
             System.out.println(ex.getMessage());
         }
         System.out.println(listaFiltrata);
-        return selezionaMezzo(listaFiltrata,sc);
+        return selezionaMezzo(listaFiltrata);
         //dopo che ha visualizzato la lista dei veicoli desiderati chiama il metodo seleziona mezzo che ritorna il veicolo desiderato
     }
 
-    public Veicolo selezionaMezzo(List<Veicolo> listaFiltrata, Scanner s){
+    public Veicolo selezionaMezzo(List<Veicolo> listaFiltrata){
         int index;
+        Scanner s = new Scanner(System.in);
         int dimensione = listaFiltrata.size();
         boolean selezionato = false;
         Veicolo veicoloSelezionato = null;
@@ -108,7 +109,7 @@ public class DatabaseFake {
             }
         }
         return veicoloSelezionato;
-    } //implementare try catch per snellire il codice e gestire meglio le eccezioni di inserimento
+    } //implementare try catch per gestire meglio le eccezioni di inserimento
 
 
     public List<Utente> getUtenti() {
