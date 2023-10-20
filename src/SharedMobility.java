@@ -8,6 +8,9 @@ public class SharedMobility {
     
     DatabaseFake d = new DatabaseFake();
     public void registraUtente(Utente u){ //NUOVA VERSIONE CHE SI COLLEGA AL TESTING
+        if(u == null){
+            
+        }
         d.aggiungiUtente(u);
     }
 
