@@ -78,25 +78,43 @@ public class SharedMobility {
 
     }
 
-    public void aggiungiCredito(){
+    public void aggiungiCredito(Utente u){
         double credito;
-        int idRicerca;
-        System.out.println("Inserisci l'importo da aggiungere: ");
+        System.out.println("Il tuo credito è: " + u.getCredito());
+        System.out.println("Quanto vuoi aggiungere? ");
         credito = scanner.nextDouble();
-        System.out.println("Inserisci il tuo id: ");
-        idRicerca = scanner.nextInt();
+        u.setCredito(credito);
+
 
     }
 
     public void affittaVeicolo(Utente u){
 
+        int minuti;
 
         Veicolo v = d.searchVeicolo();
-        if(u.getVeicolo() == null && u.getCredito()>v.getTariffa()){
+
+        System.out.println("Per quanto tempo devi affittare il veicolo? ");
+        minuti = scanner.nextInt();
+        if(minuti < 5){
+            System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+            minuti = scanner.nextInt();
+        }
+
+        if(u.getVeicolo() == null){
+
+            if(u.getCredito()<(v.getTariffa()*minuti)){
+                System.out.println("Credito insufficiente per l'affitto");
+                System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
+                while (u.getCredito()<v.getTariffa()){
+                    aggiungiCredito(u);
+                }
+            }
             u.setVeicolo(v);
+            u.setCredito(-(v.getTariffa()*minuti));
             d.aggiungiNoleggiato(v);
         }
-        else System.out.println("Non è possibile affittare più di un veicolo alla volta!");
+        else System.out.println("Non è possibile affittare il veicolo!");
 
     }
 
@@ -107,10 +125,4 @@ public class SharedMobility {
 
     }
 
-
-
-
 }
-
-
-
