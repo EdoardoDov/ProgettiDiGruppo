@@ -14,7 +14,7 @@ public class Utente {
 
     private String dataDiNascita;
     private boolean casco;
-
+    private Veicolo veicolo;
     private double credito;
     private char patente;
 
@@ -95,6 +95,15 @@ public class Utente {
     public int getId() {
         return id;
     }
+
+    public void setVeicolo(Veicolo veicolo) {
+        this.veicolo = veicolo;
+    }
+
+    public Veicolo getVeicolo() {
+        return veicolo;
+    }
+
     @Override
     public String toString(){
 
