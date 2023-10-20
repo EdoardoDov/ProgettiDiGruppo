@@ -1,4 +1,3 @@
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Locale;
@@ -8,13 +7,15 @@ import java.util.UUID;
 public class Utente {
 
     private int id;
+
+    private Veicolo veicolo;
+
     static int count = 0;
-    
     private String nome, cognome,codfisc ;
 
     private String dataDiNascita;
     private boolean casco;
-    private Veicolo veicolo;
+
     private double credito;
     private char patente;
 
@@ -25,7 +26,7 @@ public class Utente {
         this.dataDiNascita = DN;
         this.patente = patente;
         this.casco = Cas;
-        this.id = count;    
+        this.id = count;
         count++;
         this.credito = 0;
     }
@@ -33,6 +34,14 @@ public class Utente {
     public Utente(){
         this.id = count;
         count++;
+    }
+
+    public Veicolo getVeicolo() {
+        return veicolo;
+    }
+
+    public void setVeicolo(Veicolo veicolo) {
+        this.veicolo = veicolo;
     }
 
     public String getNome() {
@@ -47,8 +56,8 @@ public class Utente {
         return credito;
     }
 
-    public void setCredito(int credito) {
-        this.credito = credito;
+    public void setCredito(double credito) {
+        this.credito += credito;
     }
 
     public String getCognome() {
@@ -95,23 +104,28 @@ public class Utente {
     public int getId() {
         return id;
     }
+    /*public static void main(String[] args) {
+        Utente utente1 = new Utente();
+        utente1.setNome("Marco");
+        utente1.setCognome("Marco");
+        utente1.setCodfisc("BCCFGH11");
+        utente1.setCasco(false);
+        utente1.setPatente(true);
+        utente1.setDataDiNascita("10-10-2001");
+        System.out.println(utente1.toString());
 
-    public void setVeicolo(Veicolo veicolo) {
-        this.veicolo = veicolo;
-    }
-
-    public Veicolo getVeicolo() {
-        return veicolo;
-    }
+        Utente utente2 = new Utente("Marco", "bucceri", "BCCC","10-11-2001",true, true);
+        System.out.println(utente2.toString());
+    } */ //era solo un test
 
     @Override
     public String toString(){
 
-        return " Nome: " + getNome() + "; Cognome: "+ getCognome() +
-                "; Codice Fiscale: "+getCodfisc() + "; Data di nascita: " +
-                getDataDiNascita() + "; Identificativo utente: "+getId() +"\n";
+        return "Nome:" + getNome() + "\n" + "Cognome: "+ getCognome() + "\n" +
+                "Codice Fiscale: "+getCodfisc() + "\n" +"Data di nascita: "+ getDataDiNascita() +
+                "\n" + "Identificativo utente: "+getId() + "\n" + "veicolo: " + getVeicolo()
+                +"\n" + "Credito residuo: " + getCredito();
 
     }
 }
-
 
