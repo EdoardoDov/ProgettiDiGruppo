@@ -36,7 +36,7 @@ public class DatabaseFake {
     }
     //ricerca il veicolo secondo il tag di ricerca (tipo di veicolo);
     public Veicolo searchVeicolo(){
-        List<Veicolo> listraFiltrata = new ArrayList<>();
+        List<Veicolo> listaFiltrata = new ArrayList<>();
         int tmp;
         Scanner sc = new Scanner(System.in);
         try{
@@ -46,31 +46,31 @@ public class DatabaseFake {
             if(tmp ==1 ) {
                 for (Veicolo v : veicoliDisponibili) {
                     if (v instanceof Automobile) {
-                        listraFiltrata.add(v);
+                        listaFiltrata.add(v);
                     }
                 }
             } else if (tmp == 2 ) {
                 for (Veicolo v : veicoliDisponibili) {
                     if (v instanceof Furgoncino) {
-                        listraFiltrata.add(v);
+                        listaFiltrata.add(v);
                     }
                 }
             } else if (tmp == 3) {
                 for (Veicolo v : veicoliDisponibili) {
                     if (v instanceof Scooter) {
-                        listraFiltrata.add(v);
+                        listaFiltrata.add(v);
                     }
                 }
             }else if (tmp == 4) {
                 for (Veicolo v : veicoliDisponibili) {
                     if (v instanceof Monopattino) {
-                        listraFiltrata.add(v);
+                        listaFiltrata.add(v);
                     }
                 }
             }else if (tmp == 5) {
                 for (Veicolo v : veicoliDisponibili) {
                     if (v instanceof Bicicletta) {
-                        listraFiltrata.add(v);
+                        listaFiltrata.add(v);
                     }
                 }
             } else {
@@ -79,8 +79,8 @@ public class DatabaseFake {
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-        System.out.println(listraFiltrata);
-        return selezionaMezzo(listraFiltrata,sc);
+        System.out.println(listaFiltrata);
+        return selezionaMezzo(listaFiltrata,sc);
         //dopo che ha visualizzato la lista dei veicoli desiderati chiama il metodo seleziona mezzo che ritorna il veicolo desiderato
     }
 
