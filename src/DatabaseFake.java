@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class DatabaseFake {
@@ -38,41 +39,45 @@ public class DatabaseFake {
         List<Veicolo> listraFiltrata = new ArrayList<>();
         int tmp;
         Scanner sc = new Scanner(System.in);
-        System.out.println("- inserisci 1 per automobile \n- inserisci 2 per furgoncini \n- inserisci 3 per scooter" +
+        try{
+            System.out.println("- inserisci 1 per automobile \n- inserisci 2 per furgoncini \n- inserisci 3 per scooter" +
                             "\n- inserisci 4 per monopattino \n- inserisci 5 per bicicletta");
-        tmp = sc.nextInt();
-        if(tmp ==1 ) {
-            for (Veicolo v : veicoliDisponibili) {
-                if (v instanceof Automobile) {
-                    listraFiltrata.add(v);
+            tmp = sc.nextInt();
+            if(tmp ==1 ) {
+                for (Veicolo v : veicoliDisponibili) {
+                    if (v instanceof Automobile) {
+                        listraFiltrata.add(v);
+                    }
                 }
-            }
-        } else if (tmp == 2 ) {
-            for (Veicolo v : veicoliDisponibili) {
-                if (v instanceof Furgoncino) {
-                    listraFiltrata.add(v);
+            } else if (tmp == 2 ) {
+                for (Veicolo v : veicoliDisponibili) {
+                    if (v instanceof Furgoncino) {
+                        listraFiltrata.add(v);
+                    }
                 }
-            }
-        } else if (tmp == 3) {
-            for (Veicolo v : veicoliDisponibili) {
-                if (v instanceof Scooter) {
-                    listraFiltrata.add(v);
+            } else if (tmp == 3) {
+                for (Veicolo v : veicoliDisponibili) {
+                    if (v instanceof Scooter) {
+                        listraFiltrata.add(v);
+                    }
                 }
-            }
-        }else if (tmp == 4) {
-            for (Veicolo v : veicoliDisponibili) {
-                if (v instanceof Monopattino) {
-                    listraFiltrata.add(v);
+            }else if (tmp == 4) {
+                for (Veicolo v : veicoliDisponibili) {
+                    if (v instanceof Monopattino) {
+                        listraFiltrata.add(v);
+                    }
                 }
-            }
-        }else if (tmp == 5) {
-            for (Veicolo v : veicoliDisponibili) {
-                if (v instanceof Bicicletta) {
-                    listraFiltrata.add(v);
+            }else if (tmp == 5) {
+                for (Veicolo v : veicoliDisponibili) {
+                    if (v instanceof Bicicletta) {
+                        listraFiltrata.add(v);
+                    }
                 }
+            } else {
+                System.out.println("Input errato!");
             }
-        } else {
-            System.out.println("Input errato!");
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
         }
         System.out.println(listraFiltrata);
         return selezionaMezzo(listraFiltrata,sc);
@@ -81,10 +86,29 @@ public class DatabaseFake {
 
     public Veicolo selezionaMezzo(List<Veicolo> listaFiltrata, Scanner s){
         int index;
-        System.out.println("inserisci un indice da 0 a n-1");
-        index = s.nextInt();
-        return listaFiltrata.get(index);
-    } //implementare try catch per evitare di andare fuori indice
+        int dimensione = listaFiltrata.size();
+        boolean selezionato = false;
+        Veicolo veicoloSelezionato = null;
+        while (!selezionato) {
+            if(listaFiltrata.isEmpty()){
+                System.out.println("Nessun Veicolo disponibile");
+                selezionato = true;
+                return null;
+            } else{
+                System.out.println("inserisci un indice da 0 a " +(dimensione-1));
+                index = s.nextInt();
+                if(index >= dimensione || index < 0 ){
+                    System.out.println("indice errato!");
+                    selezionato = false;
+                }else{
+                    veicoloSelezionato = listaFiltrata.get(index);
+                    selezionato = true;
+                }
+
+            }
+        }
+        return veicoloSelezionato;
+    } //implementare try catch per snellire il codice e gestire meglio le eccezioni di inserimento
 
 
     public List<Utente> getUtenti() {
