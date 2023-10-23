@@ -4,34 +4,40 @@ import java.util.Scanner;
 
 public class SharedMobility {
 
-    public Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
     DatabaseFake d = new DatabaseFake();
-    Automobile a = new Automobile();
-    Automobile b = new Automobile();
-    Automobile c = new Automobile();
+    Automobile auto1 = new Automobile(); Automobile auto2 = new Automobile(); Automobile auto3 = new Automobile();
+    Monopattino mono1 = new Monopattino(); Monopattino mono2 = new Monopattino(); Monopattino mono3 = new Monopattino();
+    Furgoncino fur1 = new Furgoncino(); Furgoncino fur2 = new Furgoncino(); Furgoncino fur3 = new Furgoncino();
+    Bicicletta bici1 = new Bicicletta(); Bicicletta bici2 = new Bicicletta(); Bicicletta bici3 = new Bicicletta();
+    Scooter sc1 = new Scooter(); Scooter sc2 = new Scooter(); Scooter sc3 = new Scooter();
 
-    public SharedMobility(){
-        aggiungi();
-    }
+    public SharedMobility(){aggiungi();}
 
     public void registraUtente(Utente u){
         if(u.getNome() == null){
-        credenziali(u);
-        d.aggiungiUtente(u);
+            credenziali(u);
+            d.aggiungiUtente(u);
         }
         else d.aggiungiUtente(u);
 
     }
 
     public void aggiungi(){
-        d.aggiungiVeicolo(a);
-        d.aggiungiVeicolo(b);
-        d.aggiungiVeicolo(c);
+        d.aggiungiVeicolo(auto1); d.aggiungiVeicolo(auto2); d.aggiungiVeicolo(auto3);
+
+        d.aggiungiVeicolo(mono1); d.aggiungiVeicolo(mono2); d.aggiungiVeicolo(mono3);
+
+        d.aggiungiVeicolo(bici1); d.aggiungiVeicolo(bici2); d.aggiungiVeicolo(bici3);
+
+        d.aggiungiVeicolo(sc1); d.aggiungiVeicolo(sc2); d.aggiungiVeicolo(sc3);
+
+        d.aggiungiVeicolo(fur1); d.aggiungiVeicolo(fur2); d.aggiungiVeicolo(fur3);
     }
 
     //Metodo per la compilazione delle credenziali dell'utente
-     public void credenziali(Utente u){
+    public void credenziali(Utente u){
         String nome, cognome, cf, dataN, rispostaCasco;
         char patente;
         boolean casco = false;
@@ -57,7 +63,7 @@ public class SharedMobility {
 
         System.out.println("Hai un casco? (si/no) ");
         rispostaCasco = scanner.next();
-        rispostaCasco.toLowerCase();
+        rispostaCasco = rispostaCasco.toLowerCase();
 
         if (rispostaCasco.equals("si") || rispostaCasco.equals("s") ){
             casco = true;
@@ -90,45 +96,167 @@ public class SharedMobility {
 
     public void affittaVeicolo(Utente u){
 
-        int minuti;
+        int minuti; //mi serve per moltiplicare la tariffa al minuto con il tempo di utilizzo
 
         Veicolo v = d.searchVeicolo();
 
-        System.out.println("Per quanto tempo devi affittare il veicolo? ");
-        minuti = scanner.nextInt();
-        if(minuti < 5){
-            System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
-            minuti = scanner.nextInt();
-        }
-
-        if(u.getVeicolo() == null){
-
-            if(u.getCredito()<(v.getTariffa()*minuti)){
-                System.out.println("Credito insufficiente per l'affitto");
-                System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
-                while (u.getCredito()<v.getTariffa()){
-                    aggiungiCredito(u);
+        if (v.getTariffa() == fur1.getTariffa()){
+            if(u.getPatente() == fur1.patente){
+                System.out.println("Per quanto tempo devi affittare il veicolo? ");
+                minuti = scanner.nextInt();
+                if(minuti < 5){
+                    System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+                    minuti = scanner.nextInt();
                 }
+
+                if(u.getVeicolo() == null){
+
+                    if(u.getCredito()<(v.getTariffa()*minuti)){
+                        System.out.println("Credito insufficiente per l'affitto");
+                        System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
+                        while (u.getCredito()<v.getTariffa()*minuti){
+                            aggiungiCredito(u);
+                        }
+                    }
+                    u.setVeicolo(v);
+                    u.setCredito(-(v.getTariffa()*minuti));
+                    d.aggiungiNoleggiato(v);
+                }
+                else System.out.println("Non è possibile affittare il veicolo!");
+
             }
-            u.setVeicolo(v);
-            u.setCredito(-(v.getTariffa()*minuti));
-            d.aggiungiNoleggiato(v);
+            else System.out.println("Non possiedi la patente adeguata per questo veicolo");
         }
-        else System.out.println("Non è possibile affittare il veicolo!");
+        if (v.getTariffa() == auto1.getTariffa()){
+            if(u.getPatente() == auto1.patente){
+                System.out.println("Per quanto tempo devi affittare il veicolo? ");
+                minuti = scanner.nextInt();
+                if(minuti < 5){
+                    System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+                    minuti = scanner.nextInt();
+                }
+
+                if(u.getVeicolo() == null){
+
+                    if(u.getCredito()<(v.getTariffa()*minuti)){
+                        System.out.println("Credito insufficiente per l'affitto");
+                        System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
+                        while (u.getCredito()<v.getTariffa()*minuti){
+                            aggiungiCredito(u);
+                        }
+                    }
+                    u.setVeicolo(v);
+                    u.setCredito(-(v.getTariffa()*minuti));
+                    d.aggiungiNoleggiato(v);
+                }
+                else System.out.println("Non è possibile affittare il veicolo!");
+
+            }
+            else System.out.println("Non possiedi la patente adeguata per questo veicolo");
+        }
+        if (v.getTariffa() == mono1.getTariffa()){
+                System.out.println("Per quanto tempo devi affittare il veicolo? ");
+                minuti = scanner.nextInt();
+                if(minuti < 5){
+                    System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+                    minuti = scanner.nextInt();
+                }
+
+                if(u.getVeicolo() == null){
+
+                    if(u.getCredito()<(v.getTariffa()*minuti)){
+                        System.out.println("Credito insufficiente per l'affitto");
+                        System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
+                        while (u.getCredito()<v.getTariffa()*minuti){
+                            aggiungiCredito(u);
+                        }
+                    }
+                    u.setVeicolo(v);
+                    u.setCredito(-(v.getTariffa()*minuti));
+                    d.aggiungiNoleggiato(v);
+                }
+                else System.out.println("Non è possibile affittare il veicolo!");
+
+
+
+        }
+        if (v.getTariffa() == bici1.getTariffa()){
+            if(u.isCasco()){
+                System.out.println("Per quanto tempo devi affittare il veicolo? ");
+                minuti = scanner.nextInt();
+                if(minuti < 5){
+                    System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+                    minuti = scanner.nextInt();
+                }
+
+                if(u.getVeicolo() == null){
+
+                    if(u.getCredito()<(v.getTariffa()*minuti)){
+                        System.out.println("Credito insufficiente per l'affitto");
+                        System.out.println("Il costo per l'affitto è: " + (v.getTariffa()*minuti));
+                        while (u.getCredito()<v.getTariffa()*minuti){
+                            aggiungiCredito(u);
+                        }
+                    }
+                    u.setVeicolo(v);
+                    u.setCredito(-(v.getTariffa()*minuti));
+                    d.aggiungiNoleggiato(v);
+                }
+                else System.out.println("Non è possibile affittare il veicolo!");
+
+            }
+            else System.out.println("Casco necessario per noleggiare il mezzo");
+        }
+        if (v.getTariffa() == sc1.getTariffa()){
+            if(u.getPatente() == sc1.patente || u.getPatente() == 'B') {
+                if (u.isCasco()) {
+                    System.out.println("Per quanto tempo devi affittare il veicolo? ");
+                    minuti = scanner.nextInt();
+                    if (minuti < 5) {
+                        System.out.println("Il tempo minimo di utilizzo è di 5 minuti, prego inserire un nuovo tempo di utilizzo: ");
+                        minuti = scanner.nextInt();
+                    }
+
+                    if (u.getVeicolo() == null) {
+
+                        if (u.getCredito() < (v.getTariffa() * minuti)) {
+                            System.out.println("Credito insufficiente per l'affitto");
+                            System.out.println("Il costo per l'affitto è: " + (v.getTariffa() * minuti));
+                            while (u.getCredito() < v.getTariffa()*minuti) {
+                                aggiungiCredito(u);
+                            }
+                        }
+                        u.setVeicolo(v);
+                        u.setCredito(-(v.getTariffa() * minuti));
+                        d.aggiungiNoleggiato(v);
+                    } else System.out.println("Non è possibile affittare il veicolo!");
+
+                }
+                else System.out.println("Casco necessario per il noleggio del veicolo");
+            }
+            else System.out.println("Non possiedi la patente adeguata per questo veicolo");
+            }
+
 
     }
 
     public void restituisciVeicolo(Utente u){
+        
+            if(u.getVeicolo() != null) {
+                d.aggiungiDisponibili(u.getVeicolo());
+                u.setVeicolo(null);
+                System.out.println("Veicolo restituito!");
+                System.out.println("---------------");
+                System.out.println("I veicoli disponibili ora sono: " + d.veicoliDisponibili);
+                
+            }
+        else System.out.println("Nessun veicolo da restituire");
+        
 
-        d.aggiungiDisponibili(u.getVeicolo());
-        u.setVeicolo(null);
 
     }
 
 }
-
-
-
 
 
 
